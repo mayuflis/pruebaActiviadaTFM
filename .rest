@@ -1,0 +1,9 @@
+###WEB PUBLIC###
+################
+
+##Obtiene al os profesores que estan validados
+GET http://localhost:3100/api/webPublic
+
+###
+##URL para obtener a los profesores con mejor puntuación
+GET http://localhost:3100/api/webPublic/bestrating

@@ -20,8 +20,36 @@ const selectTeacherForSubjects = ({ subject }) => {
   );
 };
 
+//FUNCIONES RELACIONADAS CON EL REGISTRO DE UN PROFESOR
+
+const insertTeachers = ({
+  name,
+  lastname,
+  email,
+  password,
+  role,
+  latitude,
+  altitude,
+}) => {
+  return db.query(
+    "insert into teachers (name,last_name,email,password,role,latitude,altitude) values(?,?,?,?,?,?,?)",
+    [name, lastname, email, password, role, latitude, altitude]
+  );
+};
+
+//Seleciona al profesor en función del id
+const selectByIdTeacher = (idTeacher) => {
+  return db.query("select * from teachers where id_teachers=?", [idTeacher]);
+};
+
+const selectteacherByEmail = (email) => {
+  return db.query("select * from teachers where email= ? ", [email]);
+};
 module.exports = {
   selecTeacherValidate,
   selectBestRating,
   selectTeacherForSubjects,
+  insertTeachers,
+  selectByIdTeacher,
+  selectteacherByEmail,
 };
